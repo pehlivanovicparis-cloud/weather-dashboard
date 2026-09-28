@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple weather dashboard powered by Open-Meteo.">
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <p class="eyebrow">Live weather</p>
+      <h1>Weather Dashboard</h1>
+      <p class="subtitle">Search any city to see current conditions and a five-day forecast.</p>
+      <form id="search-form" class="search" role="search">
+        <label class="sr-only" for="city-input">City name</label>
+        <input id="city-input" name="city" type="search" placeholder="Enter a city, e.g. Paris" autocomplete="off" required>
+        <button type="submit">Search</button>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </header>
+
+    <section id="weather" class="weather" aria-live="polite" hidden>
+      <div class="location-heading">
+        <div>
+          <p class="eyebrow">Current conditions</p>
+          <h2 id="location-name"></h2>
+        </div>
+        <p id="updated" class="muted"></p>
+      </div>
+      <article class="current-card">
+        <div class="current-main">
+          <span id="current-icon" class="weather-icon" aria-hidden="true"></span>
+          <div>
+            <p id="current-temperature" class="temperature"></p>
+            <p id="current-summary" class="summary"></p>
+          </div>
+        </div>
+        <dl class="details">
+          <div><dt>Feels like</dt><dd id="feels-like"></dd></div>
+          <div><dt>Humidity</dt><dd id="humidity"></dd></div>
+          <div><dt>Wind</dt><dd id="wind"></dd></div>
+        </dl>
+      </article>
+      <h2 class="forecast-title">5-day forecast</h2>
+      <div id="forecast" class="forecast"></div>
+    </section>
+  </main>
+  <footer>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></footer>
+</body>
+</html>
